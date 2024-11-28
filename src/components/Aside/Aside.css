@@ -1,0 +1,247 @@
+.compra-online img {
+    width: 1903px;
+}
+
+.promo-navidad img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.promo-navidad-valido {
+    background-color: #015698;
+    margin-top: -16px;
+    padding-top: 0px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1440px;
+    height: 70px;
+}
+
+.promo-navidad-valido p {
+    padding-top: 30px;
+    padding-left: 40%;
+    color: white;
+}
+
+.promo-navidad-valido p:hover {
+    text-decoration: underline;
+}
+
+.ofertas-del-dia {
+    background-color: #f3f2f3;
+    width: 1070px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 30px;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.ofertas-del-dia h1 {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.ofertas-del-dia ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.ofertas-del-dia ul li {
+    float: left;
+    display: block;
+    text-align: center;
+    margin-left: 30px;
+    text-decoration: none;
+}
+
+.bloquesito {
+    padding-top: 0.1%;
+    padding-bottom: 6%;
+    display: block;
+    background-color: white;
+    width: 230px;
+}
+
+.bloquesito p {
+    text-align: center;
+}
+
+.bloquesito h2 {
+    text-align: center;
+    line-height: 25px;
+}
+
+.bloquesito h4 {
+    text-align: center;
+    line-height: 5px;
+    font-size: x-small;
+    font-style: italic;
+}
+
+.bloquesito button {
+    background-color: #333232;
+    color: white;
+}
+
+.hr-lines:before{
+    content:" ";
+    display: block;
+    height: 2px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: -350;
+    background: #b3b3b3;
+}
+
+.hr-lines{
+    position: relative;
+    /*  new lines  */
+    max-width: 500px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.hr-lines:after{
+    content:" ";
+    height: 2px;
+    width: 400px;
+    background: #b3b3b3;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -350;
+}
+
+.comprar-categoria {
+    width: 1300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.comprar-categoria ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-top: -50px;
+}
+
+.comprar-categoria ul li {
+    float: left;
+    display: block;
+    text-align: center;
+    margin-left: 45px;
+    text-decoration: none;
+}
+
+.comprar-categoria ul li p:hover {
+    text-decoration: underline;
+}
+
+.comprar-categoria img {
+    height: 130px;
+}
+
+.seccion-navidad {
+    width: 1300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    margin-bottom: 2%;
+}
+
+.fila-navidad {
+    width: 1300px;
+    display: FLEX;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+.fila-navidad ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-top: 0px;
+}
+
+.fila-navidad ul li {
+    float: left;
+    display: block;
+    text-align: center;
+    margin-left: 0px;
+    text-decoration: none;
+}
+
+.fila-navidad img {
+    margin-left: 40px;
+}
+
+.fila-navidad ul li p:hover {
+    text-decoration: underline;
+}
+
+
+
+  
+.regalos-seccion {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.regalos-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.regalo-sus {
+    text-align: center;
+    width: 200px;
+}
+
+.regalo-sus img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.regalo- button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.regalos-grande {
+    padding: 20px 0;
+    text-align: center;
+    width: 80%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.guia-de-regalos {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.icono-regalos-grande {
+    width: 100%;
+    height: auto;
+}

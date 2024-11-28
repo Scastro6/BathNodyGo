@@ -1,0 +1,11 @@
+.sectionMain {
+  display: flex;
+  margin-top: 10px;
+}
+
+body {
+  margin-top: 0;
+  padding-top: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
