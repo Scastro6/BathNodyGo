@@ -1,9 +1,15 @@
-console.log('HOLA MUNDO');
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 
-const a = 1;
-const b = 1;
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
 
-console.log(a+b);
+app.get('/', (req, resp) => {
+    return resp.send('Hello World');
+})
 
-// GET http://localhost:3000/producto
-// GET http://localhost:3000/producto/1
+app.listen(4001,() => {
+    console.log('Server is running on port 4001');
+})
