@@ -56,7 +56,7 @@ const CarritoDeCompras = () => {
             <h3>Items:</h3>
             {itemsCarrito?.map((item) => {
                 return <div key={item.id}>
-                            <span>🎵 {item.titulo} - {item.autor} - ${item.precio} <button onClick={() => removeItem(item.id) }>x</button>
+                            <span>🎵 {item.nombre} - {item.descripcion} - ${item.precio} <button onClick={() => removeItem(item.id) }>x</button>
                             </span>
                 </div>
             })}
