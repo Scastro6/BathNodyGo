@@ -1,5 +1,5 @@
 import postFuncs from "../../../data/posts.js"
-import Post from "./Post"
+import Post from "./Post.jsx"
 
 const PostContainer = ({ id }) => {
 
