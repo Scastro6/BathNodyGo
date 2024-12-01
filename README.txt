@@ -15,7 +15,7 @@ ELIMINAR node_modules antes de hacer commit
 _________________________________________________________
 para el git, 
 para conseguirlo:
-    git clone https://github.com/Scastro6/BathNodyGo/tree/main
+    git clone https://github.com/Scastro6/BathNodyGo
 
 para subirlo 
     git add .
