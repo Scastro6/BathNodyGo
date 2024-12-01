@@ -21,3 +21,14 @@ ELIMINAR node_modules antes de hacer commit
 
 
 FALTA TODO
+
+_________________________________________________________
+
+para el git, 
+para conseguirlo:
+    git clone https://github.com/Scastro6/BathNodyGo/tree/main
+
+para subirlo 
+    git add .
+    git commit -m "Descripción de los cambios"
+    git push
