@@ -1,4 +1,5 @@
-const carrito = {
+const ordenes = [{
+    id: 1,
     items: [{
         id: 1,
         nombre: "WINTER CANDY APPLE",
@@ -13,7 +14,7 @@ const carrito = {
         precio: 45.00,
         imagen: "https://bathbodype.vteximg.com.br/arquivos/ids/174728-650-709/26728495.jpg?v=638648620173430000"
     }],
-    subtotal: 0
-}
+    subtotal: 90.00
+}]
 
-export default carrito;
+export default ordenes;

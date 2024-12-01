@@ -2,14 +2,22 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
+import carritoRoutes from './routes/carrito.js'
+import ordenRoutes from './routes/orden.js'
+import productoRoutes from './routes/producto.js'
+
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/', (req, resp) => {
-    return resp.send('Hello World');
+app.get('/', (req, res) => {
+    return res.json({ result: 'OK'})
 })
 
-app.listen(4001,() => {
-    console.log('Server is running on port 4001');
+app.use('/carrito', carritoRoutes)
+app.use('/orden', ordenRoutes)
+app.use('/producto', productoRoutes)
+
+app.listen(3001, () => {
+    console.log('Servidor iniciado. Escuchando en puerto 3001')
 })

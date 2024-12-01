@@ -6,10 +6,10 @@ const findAll = () => {
     return carrito;
 }
 
-const addItem = (album) => {
-    carrito.items.push(album);
+const addItem = (producto) => {
+    carrito.items.push(producto);
     
-    return album;
+    return producto;
 }
 
 const remove = (id) => {
