@@ -16,3 +16,8 @@ node index.js
 _________________________________________________________
 
 ELIMINAR node_modules antes de hacer commit
+
+
+
+
+FALTA TODO
