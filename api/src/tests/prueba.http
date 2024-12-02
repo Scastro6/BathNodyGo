@@ -1,0 +1,4 @@
+###
+GET http://localhost:3001/api/carritos
+###
+GET http://localhost:3001/orden/2

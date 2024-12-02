@@ -1,23 +1,24 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
+import app from './app.js'; 
+import sequelize from './src/config/database.js'; 
 
-import carritoRoutes from './src/routes/carrito.js'
-import ordenRoutes from './src/routes/orden.js'
-import productoRoutes from './src/routes/producto.js'
+async function main() {
+  try {
+    const init = process.argv[2]; 
 
-const app = express();
-app.use(bodyParser.json());
-app.use(cors());
+    if (init === 'init') {
+      await sequelize.sync({ force: true }); 
+      console.log('Database synchronized with force: true (all data deleted and recreated)');
+    } else {
+      await sequelize.sync({ force: false }); 
+      console.log('Database synchronized without force (existing data preserved)');
+    }
 
-app.get('/', (req, res) => {
-    return res.json({ result: 'OK'})
-})
+    app.listen(3001, () => {
+      console.log('Server is running on port 3001');
+    });
+  } catch (error) {
+    console.error('Error synchronizing the database or starting the server:', error);
+  }
+}
 
-app.use('/carrito', carritoRoutes)
-app.use('/orden', ordenRoutes)
-app.use('/producto', productoRoutes)
-
-app.listen(3001, () => {
-    console.log('Servidor iniciado. Escuchando en puerto 3001')
-})
+main();

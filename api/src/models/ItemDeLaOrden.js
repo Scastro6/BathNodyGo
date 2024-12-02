@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
 import Orden from "./orden.js";
-import Producto from "./producto.js";
+import Producto from "./Producto.js";
 
 const ItemDeLaOrden = sequelize.define(
   "itemDeLaOrden",
@@ -15,26 +15,29 @@ const ItemDeLaOrden = sequelize.define(
     idOrden: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      field: "idorden", // Mapeo exacto a la columna en la base de datos
       references: {
-        model: Orden,
+        model: Orden, // Relación con la tabla Orden
         key: "id",
       },
     },
     idProducto: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      field: "idproducto", // Mapeo exacto a la columna en la base de datos
       references: {
-        model: Producto,
+        model: Producto, // Relación con la tabla Producto
         key: "id",
       },
     },
   },
   {
     timestamps: false,
-    tableName: "itemDeLaOrden",
+    tableName: "itemdelaorden", // Nombre exacto de la tabla en la base de datos
   }
 );
 
+// Relaciones
 ItemDeLaOrden.belongsTo(Orden, { foreignKey: "idOrden" });
 ItemDeLaOrden.belongsTo(Producto, { foreignKey: "idProducto" });
 

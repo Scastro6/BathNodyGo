@@ -11,7 +11,7 @@ const sequelize = new Sequelize(database, username, password, {
     host: hostname,
     port: port,
     dialect: dialect,
-    operatorAliases: false
+    peratorAliases: false
     
 })
 
