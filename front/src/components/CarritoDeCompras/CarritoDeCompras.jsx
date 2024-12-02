@@ -4,31 +4,31 @@ const CarritoDeCompras = () => {
   const [itemsCarrito, setItemsCarrito] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
 
-  // Fetch items del carrito
+  // Obtener los productos del carrito desde el backend
   const fetchItemsCarrito = async () => {
     try {
       const response = await fetch("http://localhost:3001/api/carritos");
       const data = await response.json();
-      setItemsCarrito(data); // Establecer los datos obtenidos del backend
+      setItemsCarrito(data); // Actualizar el estado con los productos del carrito
     } catch (error) {
       console.error("Error al obtener los items del carrito:", error);
     }
   };
 
-  // Eliminar un item del carrito
+  // Eliminar un producto del carrito
   const removeItem = async (id) => {
     try {
       await fetch(`http://localhost:3001/api/carritos/${id}`, {
         method: "DELETE",
       });
-      alert("Item eliminado del carrito!");
-      fetchItemsCarrito();
+      alert("Producto eliminado del carrito!");
+      fetchItemsCarrito(); // Actualizar la lista de productos
     } catch (error) {
-      console.error("Error al eliminar el item del carrito:", error);
+      console.error("Error al eliminar el producto del carrito:", error);
     }
   };
 
-  // Finalizar compra (checkout)
+  // Finalizar compra
   const handleCheckout = async () => {
     try {
       await fetch("http://localhost:3001/api/ordenes", {
@@ -42,7 +42,7 @@ const CarritoDeCompras = () => {
         method: "DELETE",
       });
       alert("Gracias por su compra!");
-      fetchItemsCarrito();
+      fetchItemsCarrito(); // Vaciar el carrito
     } catch (error) {
       console.error("Error al realizar el checkout:", error);
     }
@@ -53,16 +53,16 @@ const CarritoDeCompras = () => {
     fetchItemsCarrito();
   }, []);
 
-  // Calcular el subtotal cuando cambien los items del carrito
+  // Calcular el subtotal cada vez que cambien los productos en el carrito
   useEffect(() => {
     const total = itemsCarrito.reduce((sum, item) => sum + (item.precio || 0), 0);
     setSubtotal(total);
   }, [itemsCarrito]);
 
   return (
-    <>
+    <div>
       <h1>Carrito de Compras</h1>
-      <h3>Items:</h3>
+      <h3>Productos:</h3>
       {itemsCarrito.length > 0 ? (
         itemsCarrito.map((item) => (
           <div key={item.id}>
@@ -73,12 +73,12 @@ const CarritoDeCompras = () => {
           </div>
         ))
       ) : (
-        <p>No hay items en el carrito.</p>
+        <p>No hay productos en el carrito.</p>
       )}
       <hr />
       <h4>Subtotal: $ {subtotal.toFixed(2)}</h4>
       <button onClick={handleCheckout}>Finalizar Compra</button>
-    </>
+    </div>
   );
 };
 

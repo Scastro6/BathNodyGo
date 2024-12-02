@@ -1,4 +1,3 @@
--- Crear la tabla Producto
 CREATE TABLE IF NOT EXISTS Producto (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(150) NOT NULL,

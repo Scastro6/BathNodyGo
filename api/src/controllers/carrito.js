@@ -10,6 +10,7 @@ const findAll = async (req, res) => {
 
 const create = async (req, res) => {
   const payload = req.body;
+  //console.log(payload);
   const result = await repository.create(payload);
   return sendResult(result, res);
 };

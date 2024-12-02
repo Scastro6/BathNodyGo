@@ -21,6 +21,7 @@ const Nuevo = () => {
 
   // Función para agregar un producto al carrito
   const handleAddToCart = async (producto) => {
+    console.log(producto)
     try {
       const response = await fetch("http://localhost:3001/api/carritos", {
         method: "POST",
