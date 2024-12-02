@@ -8,7 +8,6 @@ import NuevoPage from './routes/NuevoPage.jsx'
 import LoginPage from './routes/LoginPage.jsx'
 import CarritoDeComprasPage from './routes/CarritoDeComprasPage.jsx'
 
-
 import {
   createBrowserRouter,
   RouterProvider

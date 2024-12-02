@@ -2,9 +2,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
-import carritoRoutes from './routes/carrito.js'
-import ordenRoutes from './routes/orden.js'
-import productoRoutes from './routes/producto.js'
+import carritoRoutes from './src/routes/carrito.js'
+import ordenRoutes from './src/routes/orden.js'
+import productoRoutes from './src/routes/producto.js'
 
 const app = express();
 app.use(bodyParser.json());
