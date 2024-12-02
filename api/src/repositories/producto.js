@@ -1,45 +1,30 @@
-import model from '../models/producto.js'
+import Producto from "../models/producto.js";
 
-let productos = [...model];
+const findAll = async () => {
+  return await Producto.findAll();
+};
 
-const findAll = () => {
-    return productos;
-}
+const findOne = async (id) => {
+  return await Producto.findByPk(id);
+};
 
-const create = (album) => {
-    productos.push(album);
-    
-    return album;
-}
+const create = async (data) => {
+  return await Producto.create(data);
+};
 
-const findOne = (id) => {
-    const result = productos.find(x => x.id == id);
+const update = async (id, data) => {
+  const producto = await Producto.findByPk(id);
+  if (!producto) return null;
+  return await producto.update(data);
+};
 
-    return result;
-}
+const remove = async (id) => {
+  const producto = await Producto.findByPk(id);
+  if (!producto) return null;
+  await producto.destroy();
+  return { message: "Producto eliminado exitosamente" };
+};
 
-const update = (producto) => {
-    const index = productos.findIndex(item => item.id == producto.id);
-
-    if (index > -1) {
-        productos[index] = producto;
-        return true;
-    }
-    else 
-        return false   
-}
-
-const remove = (id) => {
-    const index = productos.findIndex(item => item.id == id);
-
-    if (index > -1) {
-        productos.splice(index,1);
-        return true;
-    }
-    else   
-        return false;
-} 
-
-const repository = { findAll, create, findOne, update, remove }
+const repository = { findAll, findOne, create, update, remove };
 
 export default repository;

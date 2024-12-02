@@ -1,12 +1,12 @@
-import express from 'express'
+import express from "express";
+import controller from "../controllers/carrito.js";
 
-import controller from '../controllers/carrito.js'
+const router = express.Router();
 
-const routes = express.Router()
+router.get("/", controller.findAll);         // Obtener todos los carritos
+router.get("/:id", controller.findOne);      // Obtener un carrito por ID
+router.post("/", controller.create);         // Crear un nuevo carrito
+router.put("/:id", controller.update);       // Actualizar un carrito por ID
+router.delete("/:id", controller.remove);    // Eliminar un carrito por ID
 
-routes.get('/', controller.findAll ) 
-routes.post('/item', controller.addItem )
-routes.delete('/:id', controller.remove)
-routes.delete('/', controller.removeAll)
-
-export default routes
+export default router;

@@ -1,13 +1,12 @@
-import express from 'express'
+import express from "express";
+import controller from "../controllers/orden.js";
 
-import controller from '../controllers/orden.js'
+const router = express.Router();
 
-const routes = express.Router()
+router.get("/", controller.findAll);         // Obtener todas las órdenes
+router.get("/:id", controller.findOne);      // Obtener una orden por ID
+router.post("/", controller.create);         // Crear una nueva orden
+router.put("/:id", controller.update);       // Actualizar una orden por ID
+router.delete("/:id", controller.remove);    // Eliminar una orden por ID
 
-routes.get('/', controller.findAll ) 
-routes.post('/', controller.create )
-routes.get('/:id', controller.findOne )
-routes.put('/', controller.update )
-routes.delete('/:id', controller.remove)
-
-export default routes
+export default router;

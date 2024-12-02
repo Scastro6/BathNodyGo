@@ -1,4 +1,4 @@
-import model from "../models/Producto.js";
+import model from "../models/ItemDeLaOrden.js";
 import RepositoryBase from "../repositories/base.js";
 
 const repository = new RepositoryBase(model);
@@ -10,6 +10,11 @@ const findAll = async (req, res) => {
 
 const create = async (req, res) => {
   const payload = req.body;
+
+  if (!payload.idOrden || !payload.idProducto) {
+    return res.status(400).json({ message: "Faltan datos obligatorios." });
+  }
+
   const result = await repository.create(payload);
   return sendResult(result, res);
 };
