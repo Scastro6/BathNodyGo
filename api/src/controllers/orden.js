@@ -1,41 +1,47 @@
-import repository from "../repository/orden.js";
+import model from "../models/orden.js";
+import RepositoryBase from "../repositories/base.js";
 
-const findAll = (req, res) => {
-    const orden = repository.findAll();
+const repository = new RepositoryBase(model);
 
-    return res.status(200).json(orden);
-}
+const findAll = async (req, res) => {
+  const result = await repository.findAll();
+  return sendResult(result, res);
+};
 
-const create = (req, res) => {
-    const orden = req.body;
-    const ordenCreated = repository.create(orden);
-    return res.status(201).json(ordenCreated)
-}
+const create = async (req, res) => {
+  const payload = req.body;
 
-const findOne = (req,res) => {
-    
-    const id = req.params.id;
+  if (!payload.idUsuario || !payload.total || !payload.metodoDeEntrega) {
+    return res.status(400).json({ message: "Faltan datos obligatorios." });
+  }
 
-    const result = repository.findOne(id);
+  const result = await repository.create(payload);
+  return sendResult(result, res);
+};
 
-    return res.status(200).json(result);
-}
+const findOne = async (req, res) => {
+  const id = req.params.id;
+  const result = await repository.findOne(id);
+  return sendResult(result, res);
+};
 
-const update = (req, res) => {
-    const orden = req.body;
-    const result = repository.update(orden);
+const remove = async (req, res) => {
+  const id = req.params.id;
+  const result = await repository.remove(id);
+  return sendResult(result, res);
+};
 
-    return res.status(200).json(result)
-}
+const update = async (req, res) => {
+  const payload = req.body;
+  const result = await repository.update(payload);
+  return sendResult(result, res);
+};
 
-const remove = (req, res) => {
-    const id = req.params.id;
+const sendResult = (result, res) => {
+  if (result) return res.status(200).json(result);
+  else return res.status(500).json({ message: "No encontrado." });
+};
 
-    const result = repository.remove(id);
-
-    return res.status(200).json(result);
-}
-
-const controller = { findAll, create, findOne, update, remove }
+const controller = { findAll, create, findOne, remove, update };
 
 export default controller;

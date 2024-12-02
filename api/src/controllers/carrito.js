@@ -1,31 +1,42 @@
-import repository from "../repository/carrito.js";
+import model from "../models/carrito.js";
+import RepositoryBase from "../repositories/base.js";
 
-const findAll = (req, res) => {
-    const carrito = repository.findAll();
+const repository = new RepositoryBase(model);
 
-    return res.status(200).json(carrito);
-}
+const findAll = async (req, res) => {
+  const result = await repository.findAll();
+  return sendResult(result, res);
+};
 
-const addItem = (req, res) => {
-    const album = req.body;
-    const ordenCreated = repository.addItem(album);
-    return res.status(201).json(ordenCreated)
-}
+const create = async (req, res) => {
+  const payload = req.body;
+  const result = await repository.create(payload);
+  return sendResult(result, res);
+};
 
-const remove = (req, res) => {
-    const id = req.params.id;
+const findOne = async (req, res) => {
+  const id = req.params.id;
+  const result = await repository.findOne(id);
+  return sendResult(result, res);
+};
 
-    const result = repository.remove(id);
+const remove = async (req, res) => {
+  const id = req.params.id;
+  const result = await repository.remove(id);
+  return sendResult(result, res);
+};
 
-    return res.status(200).json(result);
-}
+const update = async (req, res) => {
+  const payload = req.body;
+  const result = await repository.update(payload);
+  return sendResult(result, res);
+};
 
-const removeAll = (req, res) => {
-    const resp = repository.removeAll();
+const sendResult = (result, res) => {
+  if (result) return res.status(200).json(result);
+  else return res.status(500).json({ message: "No encontrado." });
+};
 
-    return res.status(200).json(resp);
-}
-
-const controller = { findAll, addItem, remove, removeAll }
+const controller = { findAll, create, findOne, remove, update };
 
 export default controller;

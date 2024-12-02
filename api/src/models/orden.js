@@ -1,20 +1,51 @@
-const ordenes = [{
-    id: 1,
-    items: [{
-        id: 1,
-        nombre: "WINTER CANDY APPLE",
-        descripcion: "Jabon Liquido Cremoso",
-        precio: 45.00,
-        imagen: "https://bathbodype.vteximg.com.br/arquivos/ids/174668-650-709/26714199.jpg?v=638648619882500000"
-    },
-    {
-        id: 2,
-        nombre: "WINTER CANDY APPLE",
-        descripcion: "Jabon Espumoso",
-        precio: 45.00,
-        imagen: "https://bathbodype.vteximg.com.br/arquivos/ids/174728-650-709/26728495.jpg?v=638648620173430000"
-    }],
-    subtotal: 90.00
-}]
+import { DataTypes } from "sequelize";
+import sequelize from "../config/database.js";
+import Usuario from "./usuario.js";
 
-export default ordenes;
+const Orden = sequelize.define(
+  "orden",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+    },
+    idUsuario: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: Usuario,
+        key: "id",
+      },
+    },
+    fecha: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+    },
+    total: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+    },
+    subTotal: {
+      type: DataTypes.DECIMAL(10, 2),
+    },
+    metodoDeEntrega: {
+      type: DataTypes.STRING(100),
+    },
+    nroTarjeta: {
+      type: DataTypes.STRING(20),
+    },
+    tipoTarjeta: {
+      type: DataTypes.STRING(50),
+    },
+  },
+  {
+    timestamps: false,
+    tableName: "orden",
+  }
+);
+
+Orden.belongsTo(Usuario, { foreignKey: "idUsuario" });
+
+export default Orden;
